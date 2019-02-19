@@ -191,7 +191,7 @@ def depthFirstSearch(root,target,results,single,t,subSearch):
 
 def helloWorld():
 	print ("Running dataStruct!")
-	SystemExit
+	exit()
 
 if __name__ == '__main__':
 	#set global variables
@@ -200,9 +200,9 @@ if __name__ == '__main__':
 
 	#get arguments
 	parser=argparse.ArgumentParser()
-	parser.add_argument("--sort",help="Array to be sorted (defaults to 1k random numbers 1-10)")
-	parser.add_argument("--breadth","-b",help="performs a breadthFirstSearch on the tree")
-	parser.add_argument("--depth","-d",help="performs a depthFirstSearch on the tree (defaults to inorder)")
+	parser.add_argument('--list','-l', nargs='+',type=int, help='Array to be sorted (defaults to 1k random numbers 1-10)')
+	parser.add_argument("--breadth","-b",type=int,help="performs a breadthFirstSearch on the tree")
+	parser.add_argument("--depth","-d",type=int, help="performs a depthFirstSearch on the tree")
 	parser.add_argument("--inorder","-in",help="performs a depthFirstSearch (inorder) on the tree",action="store_true")
 	parser.add_argument("--preorder","-pre",help="performs a depthFirstSearch (preorder) on the tree",action="store_true")
 	parser.add_argument("--postorder","-post",help="performs a depthFirstSearch (postorder) on the tree",action="store_true")	
@@ -214,10 +214,24 @@ if __name__ == '__main__':
 	if args.breadth or args.depth:
 		#create our array
 
-		#for x in range(1000):
-		#	x=random.randrange(1,11)
-		#	array.append(x)
-		array=[3,2,4,1,4,6,8,5]
+		if not args.list:
+			for x in range(1000):
+				x=random.randrange(1,11)
+				array.append(x)
+		else:
+			for i in args.list:
+				try:
+					array.append(int(i))
+				except:
+					print("couldn't add:"+str(i))
+
+		print("array: "+str(array))
+		
+		if len(array)<1:
+			print("empty array!")
+			exit()
+
+		#array=[3,2,4,1,4,6,8,5]
 		root=buildTree(array)
 
 		#set arguments for depth and breadth searches
@@ -239,10 +253,10 @@ if __name__ == '__main__':
 
 			if not results:
 				print("breadth search returned no results")
-				SystemExit	
+				exit()	
 			else:
 				print("breadth found results"+str(results))
-				SystemExit
+				exit()
 
 		#execute depth first search
 		if args.depth:
@@ -259,10 +273,10 @@ if __name__ == '__main__':
 			print('Completed search in {0:0.1f} seconds'.format(time.time() - start))
 			if not results:
 				print("depth search returned no results")
-				SystemExit
+				exit()
 			else:
 				print("depth found results"+str(results))
-				SystemExit
+				exit()
 
 
 
