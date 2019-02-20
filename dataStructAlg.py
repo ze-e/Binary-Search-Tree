@@ -156,37 +156,42 @@ def breadthFirstSearch(root,target,single,t):
 
 #type
 def depthFirstSearch(root,target,results,single,t,subSearch):
+	print(results)
 	if root!=None:
 
 		if subSearch==0:
 			if t:
 				results.append(root.getValue())
 			if not t and root.getValue()==target:
-				results.append(root.getValue())
-			if single and root.getValue()==target:
-				return results
-
+				if not single or len(results)==0:
+					results.append(root.getValue())
+				if single:
+					return results
+		
+		#if not single or len(results)==0:
 		depthFirstSearch(root.left,target,results,single,t,subSearch)
 		
 		if subSearch==1:
 			if t:
 				results.append(root.getValue())
 			if not t and root.getValue()==target:
-				results.append(root.getValue())
-			if single and root.getValue()==target:
-				return results
-
-
+				if not single or len(results)==0:
+					results.append(root.getValue())
+				if single:
+					return results
+		
+		#if not single or len(results)==0:
 		depthFirstSearch(root.right,target,results,single,t,subSearch)
 		
 		if subSearch==2:
 			if t:
 				results.append(root.getValue())
 			if not t and root.getValue()==target:
-				results.append(root.getValue())
-			if single and root.getValue()==target:
-				return results
-	
+				if not single or len(results)==0:
+					results.append(root.getValue())
+				if single:
+					return results
+			
 	return results
 
 def helloWorld():
@@ -235,17 +240,14 @@ if __name__ == '__main__':
 		root=buildTree(array)
 
 		#set arguments for depth and breadth searches
+		single=False
 		if args.single:
 			single=True
-		else:
-			single=False
 
+		t=False
 		if args.traverse:
 			single=True
 			t=True
-		else:
-			single=False
-			t=False
 
 		#execute breadth first search
 		if args.breadth:
@@ -255,7 +257,10 @@ if __name__ == '__main__':
 				print("breadth search returned no results")
 				exit()	
 			else:
-				print("breadth found results"+str(results))
+				if t:
+					print("path to result:"+str(results))
+				else:
+					print("breadth found "+str(len(results))+" results"+str(results))
 				exit()
 
 		#execute depth first search
@@ -275,7 +280,10 @@ if __name__ == '__main__':
 				print("depth search returned no results")
 				exit()
 			else:
-				print("depth found results"+str(results))
+				if t:
+					print("tree transversed:"+str(results))
+				else:
+					print("depth found "+str(len(results))+" results"+str(results))
 				exit()
 
 
