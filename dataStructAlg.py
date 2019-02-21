@@ -209,8 +209,8 @@ Commands:
 "--preorder","-pre" : for use with depthFirstSearch. Changes the type of dfs to preorder
 "--postorder","-post" : for use with depthFirstSearch. Changes the type of dfs to postorder
 		
-"--single","-s" : only include the first matching result (works with borth dfs and bfs)
-"--traverse","-t" : show the path through the tree up until the first matching result (works with borth dfs and bfs)
+"--single","-s" : only include the first matching result (works with both dfs and bfs)
+"--traverse","-t" : show the path through the tree up until the first matching result (works with both dfs and bfs)
 	"""
 	print(text)
 	exit()
