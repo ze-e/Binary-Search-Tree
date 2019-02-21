@@ -223,8 +223,8 @@ if __name__ == '__main__':
 	#get arguments
 	parser=argparse.ArgumentParser()
 	parser.add_argument('--list','-l', nargs='+',type=int, help='Array to be sorted (defaults to 1k random numbers 1-10)')
-	parser.add_argument("--breadth","-b",type=int,help="performs a breadthFirstSearch on the tree")
-	parser.add_argument("--depth","-d",type=int, help="performs a depthFirstSearch on the tree")
+	parser.add_argument("--breadth","-b",help="performs a breadthFirstSearch on the tree")
+	parser.add_argument("--depth","-d", help="performs a depthFirstSearch on the tree")
 	parser.add_argument("--inorder","-in",help="performs a depthFirstSearch (inorder) on the tree",action="store_true")
 	parser.add_argument("--preorder","-pre",help="performs a depthFirstSearch (preorder) on the tree",action="store_true")
 	parser.add_argument("--postorder","-post",help="performs a depthFirstSearch (postorder) on the tree",action="store_true")	
@@ -234,7 +234,6 @@ if __name__ == '__main__':
 
 	#depth first and breadth first searches
 	if args.breadth or args.depth:
-	
 		#create our array
 		if not args.list:
 			for x in range(1000):
@@ -267,6 +266,13 @@ if __name__ == '__main__':
 
 		#execute breadth first search
 		if args.breadth:
+			#check if the value enter is an integer
+			try:
+				args.breadth=int(args.breadth)
+			except:
+				print("error: value being searched for is not an integer")
+				exit()
+
 			print("init depthFirstSearch...")
 			start=time.time()
 			results,found=breadthFirstSearch(root,int(args.breadth),single,t)
@@ -286,6 +292,13 @@ if __name__ == '__main__':
 
 		#execute depth first search
 		if args.depth:
+			#check if the value enter is an integer
+			try:
+				args.depth=int(args.depth)
+			except:
+				print("error: value being searched for is not an integer")
+				exit()
+
 			subType = 1
 			if args.preorder:
 				subType = 0
