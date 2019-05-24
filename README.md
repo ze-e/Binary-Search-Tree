@@ -1,6 +1,10 @@
 # Binary-Search-Tree
 A simple commandline program that demonstrates breadth and depth searches on a binary tree using Python
 
+To Use:
+Open the commandline, and run command
+`python Binary_Search.py [--arguments]`
+
 Commands:
 
 '--list','-l' : input a series of numbers seperated by spaces, to build our tree from (if blank, defaults to 1k random numbers 1-10)
