@@ -4,7 +4,7 @@ A simple commandline program that demonstrates breadth and depth searches on a b
 To Use:
 
 Open a terminal, cd into directory, and run
-`python Binary_Search.py [--command argument]`
+`python Binary_Search.py [--commands arguments]`
 
 Commands:
 
