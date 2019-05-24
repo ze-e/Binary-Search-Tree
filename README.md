@@ -3,8 +3,8 @@ A simple commandline program that demonstrates breadth and depth searches on a b
 
 To Use:
 
-Open a termina, cd into directory, and run command
-`python Binary_Search.py [--arguments]`
+Open a terminal, cd into directory, and run
+`python Binary_Search.py [--command argument]`
 
 Commands:
 
@@ -13,9 +13,13 @@ Commands:
 "--breadth","-b" : performs a breadthFirstSearch on the tree. REMEMBER to include an integer as an argument!
 		
 "--depth","-d" :  performs a depthFirstSearch on the tree (by default inorder). REMEMBER to include an integer as an argument!
+
 "--inorder","-in" : for use with depthFirstSearch. Changes the type of dfs to inorder.
+
 "--preorder","-pre" : for use with depthFirstSearch. Changes the type of dfs to preorder.
+
 "--postorder","-post" : for use with depthFirstSearch. Changes the type of dfs to postorder.
 		
 "--single","-s" : only include the first matching result (works with both dfs and bfs).
+
 "--traverse","-t" : show the path through the tree up until the first matching result (works with both dfs and bfs).
