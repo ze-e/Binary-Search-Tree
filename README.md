@@ -2,7 +2,8 @@
 A simple commandline program that demonstrates breadth and depth searches on a binary tree using Python
 
 To Use:
-Open the commandline, and run command
+
+Open a termina, cd into directory, and run command
 `python Binary_Search.py [--arguments]`
 
 Commands:
