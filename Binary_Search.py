@@ -206,10 +206,6 @@ def depthFirstSearch(current,target,results,single,t,subType,flag = 0):
             
     return results, flag
 
-#if no arguments are entered, it will run a helloWorld 
-def helloWorld():
-    print ("Running dataStruct!")
-    exit()
 
 #displays welcome/help message
 def displayHelp():
